@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画板</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="palette.js"></script>
+	<script src="index.js"></script>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		box-sizing: border-box;
+	}
+	main{
+		width: 100%;
+		min-height: 600px;
+		background: skyblue;
+	}
+	.left{
+		width: 100px;
+		height: 600px;
+		background: blue;
+		float: left;
+	}
+	.left ul{
+		width: 100%;
+		height: 150px;
+		background: sky;
+		/* border: 1px solid yellow; */
+		padding: 15px 5px;
+	}
+    .left ul li{
+    	width: 30px;
+    	height: 30px;
+    	background: red;
+    	margin: 15px 7.5px 15px 5px;
+    	float: left;
+    	color: #fff;
+    	text-align: center;
+    	line-height: 30px;
+    	font-weight: 500;
+    	font-size: 10px;
+    	border-radius: 5px;
+    	cursor: pointer;
+    }
+    .right{
+    	width: auto;
+    	height: 600px;
+    	background: #f0f0f0;
+    	float: left;
+    }
+    .right-top{
+    	width: auto;
+    	height: 80px;
+        background: green;
+        padding: 25px 30px;
+    }
+    .right-top ul li{
+    	width: 30px;
+    	height: 30px;
+    	background: red;
+    	margin-right: 50px;
+    	float: left;
+    	color: #fff;
+    	text-align: center;
+    	line-height: 30px;
+    	font-weight: 500;
+    	font-size: 10px;
+    	border-radius: 5px;
+    	cursor: pointer;
+    }
+    .right-bottom{
+    	width: auto;
+    	height: 520px;
+    	background: blue;
+    	position: relative;
+    }
+    .mask{
+    	width: 100%;
+    	height: 100%;
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    	z-index: 6666;
+    }
+    .xpc{
+    	width: 50px;
+    	height: 50px;
+    	background: red;
+    	border: 1px solid blue;
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    	display: none;
+    }
+    .clipobj{
+    	width: 100px;
+    	height: 200px;
+    	background: blue;
+    	border: 1px dashed #000;
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    	display: none;
+    }
+    canvas{
+    	background: #f5f5f5;
+    }
+</style>
+<body>
+	<main>
+		<div class="left">
+			<ul>
+				<li id="line">直线</li>
+				<li id="circle">圆圈</li>
+				<li id="poly">多边</li>
+				<li id="polj">多角</li>
+			</ul>
+			<ul>
+				<li id="square">矩形</li>
+				<li id="dash">虚线</li>
+				<li id="pencil">铅笔</li>
+				<li id="font">文字</li>
+			</ul>
+			<ul>
+				<li id="stroke">描边</li>
+				<li id="fill">填充</li>
+				<li id="colorone"><input type="color" style="width: 30px;height: 30px;border-radius: 5px;"></li>
+				<li id="colortwo"><input type="color" style="width: 30px;height: 30px;border-radius: 5px;"></li>
+			</ul>
+			<ul>
+				<li id="eraser">橡皮</li>
+				<li id="clip">裁剪</li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="right">
+			<div class="right-top">
+			    <ul>
+				    <li id="clips">撤销</li>
+				    <li id="clear">清除</li>
+				    <li></li>
+				    <li></li>
+				    <li></li>
+				    <li></li>
+				    <li></li>
+				    <li></li>
+				    <li></li>
+				    <li></li>
+			    </ul>
+		    </div>
+		    <div class="right-bottom">
+		    	<canvas></canvas>
+		    	<div class="mask"></div>
+		    	<div class="xpc"></div>
+		    	<div class="clipobj"></div>
+		    </div>   
+		</div>	
+	</main>
+</body>
+</html>
